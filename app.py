@@ -1,9 +1,9 @@
-from flask import Flask, jsonify
+import os
+from flask import Flask
+from routes import register
 
 app = Flask('hello_world')
 
-@app.route('/')
-def index():
-    return jsonify({"foo": "bar"}), 404
+register(app)
 
-app.run()
+app.run(port=8080, host='0.0.0.0')
